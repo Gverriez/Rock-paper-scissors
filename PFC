@@ -2,58 +2,58 @@ import random
 actions = ["pierre", "feuille", "ciseaux"]
 name = input("Quel est ton prénom ? ")
 num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
-score_user = 0
-score_computer = 0
+user_score = 0
+computer_score = 0
 games_played = 0
 
 while games_played<num_games:
-    user_input = input("{}, choisis pierre, feuille ou ciseaux : ".format(name))
-    computer_input = random.choice(actions)
-    if user_input == "pierre":
-        if computer_input == "pierre":
+    user_choice = input("{}, choisis pierre, feuille ou ciseaux : ".format(name))
+    computer_choice = random.choice(actions)
+    if user_choice == "pierre":
+        if computer_choice == "pierre":
             print("l'ordinateur choisit également pierre, match nul sur cette manche")
-        elif computer_input == "feuille":
+        elif computer_choice == "feuille":
             print("l'ordinateur choisit feuille, tu as perdu la manche")
-            score_computer += 1
+            computer_score += 1
         else:
             print("l'ordinateur choisit ciseaux, tu as gagné la manche")
-            score_user += 1
+            user_score += 1
         games_played += 1
-        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} manches sur {}".format(score_user,
-                                                                                                           score_computer,
+        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} manches sur {}".format(user_score,
+                                                                                                           computer_score,
                                                                                                            games_played,
                                                                                                            num_games))
-    if user_input == "feuille":
-        if computer_input == "pierre":
+    if user_choice == "feuille":
+        if computer_choice == "pierre":
             print("l'ordinateur choisit pierre, tu as gagné la manche")
-            score_user += 1
-        elif computer_input == "feuille":
+            user_score += 1
+        elif computer_choice == "feuille":
             print("l'ordinateur choisit également feuille, match nul sur cette manche")
         else:
             print("l'ordinateur choisit ciseaux, tu as perdu la manche")
-            score_computer += 1
+            computer_score += 1
         games_played += 1
-        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(score_user,
-                                                                                                           score_computer,
+        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(user_score,
+                                                                                                           computer_score,
                                                                                                            games_played,
                                                                                                            num_games))
-    if user_input == "ciseaux":
-        if computer_input == "pierre":
+    if user_choice == "ciseaux":
+        if computer_choice == "pierre":
             print("l'ordinateur choisit pierre, tu as perdu la manche")
-            score_computer += 1
-        elif computer_input == "feuille":
+            computer_score += 1
+        elif computer_choice == "feuille":
             print("l'ordinateur choisit feuille, tu as gagné la manche")
-            score_user += 1
+            user_score += 1
         else:
             print("l'ordinateur choisit également ciseaux, match nul sur cette manche")
         games_played += 1
-        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(score_user,
-                                                                                                           score_computer,
+        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(user_score,
+                                                                                                           computer_score,
                                                                                                            games_played,
                                                                                                            num_games))
-if score_computer > score_user:
+if computer_score > user_score:
     print("tu as perdu la partie")
-elif score_user > score_computer:
+elif user_score > computer_score:
     print("tu as gagné la partie")
 else:
     print("la partie est terminée, match nul")
