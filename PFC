@@ -2,10 +2,11 @@ import random
 actions = ["pierre", "feuille", "ciseaux"]
 name = input("Quel est ton prénom ? ")
 
-try:
-    num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
-except ValueError:
-    print("Entrez un nombre valide svp")
+while True:
+    try:
+        num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
+    except ValueError:
+        print("Entrez un nombre valide svp")
 
 user_score = 0
 computer_score = 0
