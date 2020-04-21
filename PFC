@@ -7,6 +7,8 @@ while True:
         num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
     except ValueError:
         print("Entrez un nombre valide svp")
+    else:
+        break
 
 user_score = 0
 computer_score = 0
