@@ -1,13 +1,18 @@
 import random
 actions = ["pierre", "feuille", "ciseaux"]
 name = input("Quel est ton prénom ? ")
-num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
+
+try:
+    num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
+except ValueError:
+    print("Entrez un nombre valide svp")
+
 user_score = 0
 computer_score = 0
 games_played = 0
 
-while games_played<num_games:
-    user_choice = input("{}, choisis pierre, feuille ou ciseaux : ".format(name))
+while games_played < num_games:
+    user_choice = input("{}, choisis pierre, feuille ou ciseaux : ".format(name)).lower()
     computer_choice = random.choice(actions)
     if user_choice == "pierre":
         if computer_choice == "pierre":
