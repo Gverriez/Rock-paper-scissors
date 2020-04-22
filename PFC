@@ -1,21 +1,20 @@
 import random
 actions = ["pierre", "feuille", "ciseaux"]
 name = input("Quel est ton prénom ? ")
+num_games = 0
 
-while True:
+while num_games <= 0:
     try:
-        num_games = int(input("Bonjour {}, combien de manches veux-tu jouer ? ".format(name)))
+        num_games = int(input(f"Bonjour {name}, combien de manches veux-tu jouer ? "))
     except ValueError:
-        print("Entrez un nombre valide svp")
-    else:
-        break
+        print("Entre un nombre valide")
 
 user_score = 0
 computer_score = 0
 games_played = 0
 
 while games_played < num_games:
-    user_choice = input("{}, choisis pierre, feuille ou ciseaux : ".format(name)).lower()
+    user_choice = input(f"{name}, choisis pierre, feuille ou ciseaux : ").lower()
     computer_choice = random.choice(actions)
     if user_choice == "pierre":
         if computer_choice == "pierre":
@@ -27,10 +26,7 @@ while games_played < num_games:
             print("l'ordinateur choisit ciseaux, tu as gagné la manche")
             user_score += 1
         games_played += 1
-        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} manches sur {}".format(user_score,
-                                                                                                           computer_score,
-                                                                                                           games_played,
-                                                                                                           num_games))
+        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} manches sur {}".format(user_score, computer_score, games_played, num_games))
     if user_choice == "feuille":
         if computer_choice == "pierre":
             print("l'ordinateur choisit pierre, tu as gagné la manche")
@@ -41,10 +37,7 @@ while games_played < num_games:
             print("l'ordinateur choisit ciseaux, tu as perdu la manche")
             computer_score += 1
         games_played += 1
-        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(user_score,
-                                                                                                           computer_score,
-                                                                                                           games_played,
-                                                                                                           num_games))
+        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(user_score, computer_score, games_played, num_games))
     if user_choice == "ciseaux":
         if computer_choice == "pierre":
             print("l'ordinateur choisit pierre, tu as perdu la manche")
@@ -55,10 +48,7 @@ while games_played < num_games:
         else:
             print("l'ordinateur choisit également ciseaux, match nul sur cette manche")
         games_played += 1
-        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(user_score,
-                                                                                                           computer_score,
-                                                                                                           games_played,
-                                                                                                           num_games))
+        print("le score est de {} pour toi, {} pour l'ordinateur, vous avez joué {} parties sur {}".format(user_score, computer_score, games_played, num_games))
 if computer_score > user_score:
     print("tu as perdu la partie")
 elif user_score > computer_score:
